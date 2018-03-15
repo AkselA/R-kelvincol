@@ -1,4 +1,4 @@
-#' @export
+
 splinegen <- function() {
     suff <- expand.grid(c("x", "y", "P"), c("2", "10"), stringsAsFactors=FALSE)
     K2 <- list()
