@@ -1,5 +1,5 @@
-
-fungen <- function() {
+#' @export
+splinegen <- function() {
     suff <- expand.grid(c("x", "y", "P"), c("2", "10"), stringsAsFactors=FALSE)
     K2 <- list()
 
@@ -10,3 +10,4 @@ fungen <- function() {
     names(K2) <- apply(suff, 1, paste, collapse="")
     K2
 }
+

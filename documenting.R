@@ -112,7 +112,7 @@ show_pdf <- function(package, lib.loc=NULL, opt="--force") {
                   "CMD", "Rd2pdf", paste(opt, collapse=" "),
                   shQuote(path))) 
 } 
-show_pdf(projname)
+# show_pdf(projname)
 
 
 # run convenience script to add, commit and maybe push change
