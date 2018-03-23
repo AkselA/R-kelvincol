@@ -1,5 +1,8 @@
+#' @export
 XYZ2RGB <- function(X, Y, Z, gamma=TRUE, 
     limit=c("medium", "soft", "hard", "none")) {
+    # This will give you standard D65 sRGB values.
+    # For further options use convertColor
    	
 	limit <- match.arg(limit)
 	
@@ -41,28 +44,29 @@ XYZ2RGB <- function(X, Y, Z, gamma=TRUE,
     cc
 }
 
-K2RGB <- function(K, Y=0.5, deg=c("2", "10"), gamma=TRUE, 
+#' @export
+K2RGB <- function(K, Y=0.5, method="charity2", gamma=TRUE, 
   limit=c("medium", "soft", "hard", "none", "linear")) {
   	
-  	deg <- match.arg(deg)
   	limit <- match.arg(limit)
 	
-	XYZ <- K2XYZ(K, Y, deg)
+	XYZ <- K2XYZ(K, Y, method)
 	RGB <- apply(XYZ, 1, XYZ2RGB, gamma=gamma, limit=limit)
 	RGB <- t(RGB)
 	colnames(RGB) <- c("R", "G", "B")
 	RGB
 }
 
-K2hex <- function(K, Y=0.5, deg=c("2", "10"), gamma=TRUE, 
+#' @export
+K2hex <- function(K, Y=0.5, method="charity2", gamma=TRUE, 
   limit=c("medium", "soft", "hard", "none", "linear"), alpha=1) {
   	
-  	deg <- match.arg(deg)
   	limit <- match.arg(limit)
 	
-	XYZ <- K2XYZ(K, Y, deg)
+	XYZ <- K2XYZ(K, Y, method)
 	RGB <- apply(XYZ, 1, XYZ2RGB, gamma=gamma, limit=limit)
 	RGB <- t(RGB)
 	colnames(RGB) <- c("R", "G", "B")
 	rgb(RGB[,"R"], RGB[,"G"], RGB[,"B"], alpha)
 }
+

@@ -1,4 +1,5 @@
-K2xy <- function(K) {
+#' @export
+K2xy2 <- function(K) {
 	# US patent 7024034, Kim et al. 2006
 	# This approximation is reasonably accurate for K > 1700 & K < 25000
 	y <- x <- numeric(length(K))

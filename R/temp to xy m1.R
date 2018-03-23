@@ -11,3 +11,14 @@ splinegen <- function() {
     K2
 }
 
+
+#' @export
+K2xy1 <- function(K, deg=c("2", "10")) {
+	# Mitchell N. Charity
+	# http://www.vendian.org/mncharity/dir3/blackbody/
+	deg <- match.arg(deg)
+	x <- kelvincol::K2[[paste0("x", deg)]](K)
+	y <- kelvincol::K2[[paste0("y", deg)]](K)
+	cbind(x, y)
+}
+

@@ -2,7 +2,7 @@ K2u <- function(K) {
 	# Krystek, Michael P. (January 1985)
 	# nøyaktig til 8*(10^-5) for K ∈ (1000, 15000)
 	num <- 0.860117757 + 1.54118254*(10^-4)*K + 1.28641212*(10^-7)*(K^2)
-	den <- 1 - 8.42420235*(10^-4)*K + 7.08145163*(10^-7)*(K^2)
+	den <- 1 + 8.42420235*(10^-4)*K + 7.08145163*(10^-7)*(K^2)
 	num/den
 }
 
@@ -14,7 +14,7 @@ K2v <- function(K) {
 	num/den
 }
 
-uv2xy <- function(u, v, prime=TRUE) {
+uv2xy <- function(u, v, prime=FALSE) {
 	if (length(u) > 1 & missing(v)) {
 		q <- u
 		u <- q[, 1]
@@ -26,6 +26,7 @@ uv2xy <- function(u, v, prime=TRUE) {
     cbind(x, y)
 }
 
+#' @export
 K2xy3 <- function(K) {
 	uv2xy(K2u(K), K2v(K))
 }
