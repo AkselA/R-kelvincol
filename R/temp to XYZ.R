@@ -10,12 +10,12 @@ K2xy <- function(K, method=c("charity2", "charity10", "kim", "krystek")) {
 	       )
 }
 
-s <- seq(1500, 4500, by=50)
-plot(K2xy(s), type="n")
-lines(K2xy(s, "charity2"), lwd=2, col="#ff000088")
-lines(K2xy(s, "charity10"), lwd=2, col="#00ff0088")
-lines(K2xy(s, "kim"), lwd=2, col="#0000ff88")
-lines(K2xy(s, "krystek"), lwd=2, col="#ff00ff88")
+# s <- seq(1500, 4500, by=50)
+# plot(K2xy(s), type="n")
+# lines(K2xy(s, "charity2"), lwd=2, col="#ff000088")
+# lines(K2xy(s, "charity10"), lwd=2, col="#00ff0088")
+# lines(K2xy(s, "kim"), lwd=2, col="#0000ff88")
+# lines(K2xy(s, "krystek"), lwd=2, col="#ff00ff88")
 
 #' @export
 xyY2XYZ <- function(x, y, Y=0.5) {
