@@ -70,3 +70,5 @@ K2hex <- function(K, Y=0.5, method="charity2", gamma=TRUE,
 	rgb(RGB[,"R"], RGB[,"G"], RGB[,"B"], alpha)
 }
 
+# k <- seq(1200, 12000, 500)
+# plot(k, pch=16, cex=5, col=K2hex(k, alpha=0.9, method="charity10"))
