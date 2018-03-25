@@ -122,4 +122,5 @@ system(paste0("open ", projname, "/commit.command"))
 
 # install_github(paste0("AkselA/R-", projname))
 # library(projname, character.only=TRUE)
-ls()
+ls(paste0("package:", projname))
+ls(getNamespace(projname), all.names=TRUE)
