@@ -1,3 +1,4 @@
+#' @export
 temp.colors.fun <- function() {
   temp.colors <- colorRampPalette({
   k <- seq(900, 14000, length.out=100)
@@ -21,7 +22,11 @@ templog.colors <- colorRampPalette({
   h <- hsv(h[1,], h[2,], h[3,])
   h
   })
+  
+  temp.colors.list <- list(temp.colors, templog.colors)
+  temp.colors.list
 }
+# kelvincol:::temp.colors.fun()
 
 # image2(matrix(1:(16*16), 16), col=templog.colors(16*16))
 # plot(1:16, bg=temp.colors(16), pch=21, cex=6)
