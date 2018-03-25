@@ -23,15 +23,16 @@ temp.colors.fun <- function() {
       h  
       })
     
-    temp.colors <- list(temp, templog)
-    temp.colors
+    list(temp, templog)
 }
 
-#' @export
-kelvin.colors <- function(n) temp.colors.fun()[[1]](n)
+temp.colors <- temp.colors.fun()
 
 #' @export
-kelvinlog.colors <- function(n) temp.colors.fun()[[2]](n)
+kelvin.colors <- function(n) temp.colors[[1]](n)
+
+#' @export
+kelvinlog.colors <- function(n) temp.colors[[2]](n)
 
 # image2(matrix(1:(16*16), 16), col=templog.colors(16*16))
 # plot(1:16, bg=temp.colors(16), pch=21, cex=6)
