@@ -27,31 +27,30 @@ temp.colors.fun <- function() {
     temp.colors
 }
 
-# temp.colors <- temp.colors.fun()
-# rm(temp.colors, envir=getNamespace("kelvincol"))
 #' @export
 kelvin.colors <- function(n) {
-	tryCatch(kelvincol::temp.colors[[1]](n), 
-	  finally={ 
-	  	assign("temp.colors", temp.colors.fun(), envir=getNamespace("kelvincol"))
-	  	kelvincol::temp.colors[[1]](n)
-	  	})
+	tryCatch(temp.colors1(n), 
+	  error=function(e) {
+	  	  message("exported \'temp.colors1\'")
+	      temp.colors1 <<- kelvincol:::temp.colors.fun()[[1]]
+	  	  temp.colors1(n)
+	  }
+	  )
 }
 
-# kelvin.colors(3)
 
 #' @export
-kelvinlog.colors <- function(n) kelvincol::temp.colors[[1]](n)
+kelvinlog.colors <- function(n) {
+	tryCatch(temp.colors[[2]](n), 
+	  error=function(e) {
+	  	  message("exported \'temp.colors2\'")
+	      temp.colors2 <<- kelvincol:::temp.colors.fun()[[2]]
+	  	  temp.colors2(n)
+	  }
+	  )
+}
 
-# image2(matrix(1:(16*16), 16), col=templog.colors(16*16))
-# plot(1:16, bg=temp.colors(16), pch=21, cex=6)
+# image(matrix(1:(16*16), 16), col=kelvinlog.colors(16*16))
+# plot(1:16, bg=kelvin.colors(16), pch=21, cex=6)
 
 
-# k <- seq(900, 15000, 1000)
-# r <- K2RGB(k, Y=splval(k))
-# h <- rgb2hsv(t(r), maxColorValue=1)
-# hsv(h[1,], h[2,], h[3,])
-
-# Y=splval(k)
-# Y <- (Y-0.01)/0.97
-# range(Y)
