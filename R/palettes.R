@@ -23,7 +23,8 @@ temp.colors.fun <- function() {
       h  
       })
     
-    list(temp, templog)
+    temp.colors <- list(temp, templog)
+    temp.colors
 }
 
 #' @export
