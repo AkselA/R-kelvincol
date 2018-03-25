@@ -3,3 +3,4 @@
 ^data\.R$
 ^documenting\.R$
 ^commit\.command$
+^xxxdata$
