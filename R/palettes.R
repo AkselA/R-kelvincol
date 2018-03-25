@@ -23,10 +23,8 @@ temp.colors.fun <- function() {
       h  
       })
     
-    list(temp, templog)
+    temp.colors <<- list(temp, templog)
 }
-
-temp.colors <- temp.colors.fun()
 
 #' @export
 kelvin.colors <- function(n) temp.colors[[1]](n)
