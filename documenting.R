@@ -102,7 +102,7 @@ add_data(projname)
 document(projname)
 
 # unload(projname)
-use_build_ignore(c("data.R", "documenting.R", "commit.command", "xxxdata"), pkg=projname)
+use_build_ignore(c("data.R", "documenting.R", "commit.command"), pkg=projname)
 
 # check(projname, manual=TRUE)
 
