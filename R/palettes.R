@@ -1,5 +1,7 @@
 
 temp.colors.fun <- function() {
+	temp.colors <- list()
+	
     temp <- colorRampPalette({
       k <- seq(900, 14000, length.out=100)
       r <- K2RGB(k, Y=splval(k))
@@ -23,11 +25,16 @@ temp.colors.fun <- function() {
       h  
       })
     
-    temp.colors <<- list(temp, templog)
+    temp.colors[[1]] <- temp
+    temp.colors[[2]] <- templog
+    temp.colors
+    
 }
 
 #' @export
-kelvin.colors <- function(n) temp.colors[[1]](n)
+kelvin.colors <- function(n) kelvincol::temp.colors[[1]]
+
+
 
 #' @export
 kelvinlog.colors <- function(n) temp.colors[[2]](n)
