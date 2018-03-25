@@ -101,7 +101,6 @@ load_all(projname)
 add_data(projname)
 document(projname)
 
-# unload(projname)
 use_build_ignore(c("data.R", "documenting.R", "commit.command"), pkg=projname)
 
 # check(projname, manual=TRUE)
@@ -120,8 +119,9 @@ system(paste0("open ", projname, "/commit.command"))
 
 # dev_example(projname)
 
-# install_github(paste0("AkselA/R-", projname))
-# library(projname, character.only=TRUE)
+unload(projname)
+install_github(paste0("AkselA/R-", projname))
+library(projname, character.only=TRUE)
 ls(paste0("package:", projname))
 ls(getNamespace(projname), all.names=TRUE)
 ls()
