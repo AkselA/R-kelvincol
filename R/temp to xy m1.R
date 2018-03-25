@@ -17,8 +17,19 @@ K2xy1 <- function(K, deg=c("2", "10")) {
 	# Mitchell N. Charity
 	# http://www.vendian.org/mncharity/dir3/blackbody/
 	deg <- match.arg(deg)
-	x <- kelvincol::K2[[paste0("x", deg)]](K)
-	y <- kelvincol::K2[[paste0("y", deg)]](K)
-	cbind(x, y)
+	tryCatch({
+      x <- kelvinK2[[paste0("x", deg)]](K)
+	  y <- kelvinK2[[paste0("y", deg)]](K)
+	  cbind(x, y)
+	  }, 
+	  error=function(e) {
+	  	  message("exported \'kelvinK2\'")
+	      kelvinK2 <<- kelvincol:::splinegen()
+          x <- kelvinK2[[paste0("x", deg)]](K)
+          y <- kelvinK2[[paste0("y", deg)]](K)
+          cbind(x, y)
+	  }
+	  )
 }
 
+K2xy1(2000)

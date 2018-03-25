@@ -41,7 +41,7 @@ kelvin.colors <- function(n) {
 
 #' @export
 kelvinlog.colors <- function(n) {
-	tryCatch(temp.colors[[2]](n), 
+	tryCatch(temp.colors2(n), 
 	  error=function(e) {
 	  	  message("exported \'temp.colors2\'")
 	      temp.colors2 <<- kelvincol:::temp.colors.fun()[[2]]
@@ -50,7 +50,9 @@ kelvinlog.colors <- function(n) {
 	  )
 }
 
-# image(matrix(1:(16*16), 16), col=kelvinlog.colors(16*16))
-# plot(1:16, bg=kelvin.colors(16), pch=21, cex=6)
+# # par(mar=c(2, 2, 0.5, 0.5), mfrow=c(1, 2))
+# image(matrix(1:(16*5), ncol=16), col=kelvin.colors(10^4))
+# image(matrix(1:(16*5), ncol=16), col=kelvinlog.colors(10^4))
 
-
+# image(jitter(volcano, 2), col=kelvin.colors(10^4))
+# image(jitter(volcano, 2), col=kelvinlog.colors(10^4))
