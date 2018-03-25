@@ -1,4 +1,4 @@
-#' @export
+
 temp.colors.fun <- function() {	
     temp <- colorRampPalette({
       k <- seq(900, 14000, length.out=100)
@@ -24,8 +24,7 @@ temp.colors.fun <- function() {
       })
     
 	temp.colors <- list(temp, templog)
-    assign("temp.colors", temp.colors)
-    
+    assign("temp.colors", temp.colors, pos=-2)
 }
 
 # #' @export
