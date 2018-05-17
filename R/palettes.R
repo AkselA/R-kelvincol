@@ -50,9 +50,13 @@ kelvinlog.colors <- function(n) {
 	  )
 }
 
-# # par(mar=c(2, 2, 0.5, 0.5), mfrow=c(1, 2))
+# opar <- par(no.readonly = TRUE)
+# par(mar=c(2, 2, 0.5, 0.5), mfrow=c(2, 2))
+
 # image(matrix(1:(16*5), ncol=16), col=kelvin.colors(10^4))
 # image(matrix(1:(16*5), ncol=16), col=kelvinlog.colors(10^4))
 
 # image(jitter(volcano, 2), col=kelvin.colors(10^4))
 # image(jitter(volcano, 2), col=kelvinlog.colors(10^4))
+
+# par(old.par)
