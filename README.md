@@ -1,6 +1,4 @@
----
-title: kelvincol
----
+# kelvincol
 
 Utilities for converting [colour temperatures](https://en.wikipedia.org/wiki/Color_temperature) to displayable rgb values.
 
