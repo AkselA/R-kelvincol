@@ -1,4 +1,4 @@
-
+ 
 temp.colors.fun <- function() {	
     temp <- colorRampPalette({
       k <- seq(900, 14000, length.out=100)
@@ -26,6 +26,8 @@ temp.colors.fun <- function() {
     temp.colors <- list(temp, templog)
     temp.colors
 }
+
+# there's probably a neater way of doing this using .onLoad or .onAttach
 
 #' @export
 kelvin.colors <- function(n) {

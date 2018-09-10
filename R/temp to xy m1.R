@@ -11,6 +11,7 @@ splinegen <- function() {
     K2
 }
 
+# there's probably a neater way of doing this using .onLoad or .onAttach
 
 #' @export
 K2xy1 <- function(K, deg=c("2", "10")) {
